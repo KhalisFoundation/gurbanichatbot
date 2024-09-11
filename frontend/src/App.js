@@ -130,7 +130,7 @@ function App() {
               className="login-button" 
               style={{ position: 'absolute', top: '20px', right: '20px' }}
             >
-              Login with Khalis SSO
+              Login with Khalis Account
             </button>
           )}
         </div>
