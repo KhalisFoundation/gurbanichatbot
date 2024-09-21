@@ -1,0 +1,135 @@
+/* Container to center everything vertically and horizontally */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Allows for absolute positioning of the button */
+}
+
+/* Logo at the top center */
+.logo {
+    margin-top: 5px; /* Adjust margin for spacing */
+}
+
+/* Adjust logo size */
+.logo img {
+    width: 100px; /* Set a width for responsive scaling */
+    height: auto;
+}
+
+/* Text below the logo, centered and bold */
+.landing-text {
+    margin-top: 15px;
+    font-size: 24px; /* Default size */
+    color: #343a40;
+    text-align: center;
+    font-weight: bold; /* Bold text */
+}
+
+/* Card structure styling */
+.main-card {
+    background-color: #f0f0f0; /* Light grey color */
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Maximum width */
+    padding: 40px; /* Padding inside the card */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px 0; /* Spacing around the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Button styling */
+.khalis-button {
+    position: absolute; /* Set the button to be positioned absolutely */
+    bottom: 40px; /* Set it to the bottom */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333; /* Dark button color */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounded corners */
+    padding: 12px 30px; /* Button padding */
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Limit max width */
+}
+
+/* White circle around the logo inside the button */
+.khalis-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background-color: white; /* White circle */
+    border-radius: 50%; /* Circular shape */
+    padding: 5px; /* Padding for inner logo spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon inside the white circle */
+.khalis-icon img {
+    width: 100%; /* Ensure the logo fits inside the circle */
+    height: auto;
+    display: block; /* Proper image scaling */
+}
+
+/* Responsive adjustments for tablets and medium devices */
+@media (max-width: 768px) {
+    .landing-text {
+        font-size: 22px; /* Adjust font size */
+    }
+
+    .main-card {
+        padding: 30px; /* Adjust padding on smaller screens */
+        width: 90%; /* Reduce width */
+    }
+
+    .khalis-button {
+        padding: 10px 25px; /* Adjust button padding */
+    }
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 480px) {
+    .landing-text {
+        font-size: 20px; /* Smaller font for mobile */
+    }
+
+    .main-card {
+        padding: 20px; /* Less padding for mobile */
+        width: 95%; /* Full width for mobile */
+    }
+
+    .khalis-button {
+        padding: 8px 20px; /* Adjust button size */
+        bottom: 20px; /* Move button closer to the bottom */
+    }
+
+    .logo img {
+        width: 80px; /* Smaller logo size for mobile */
+    }
+}
+
+/* Responsive for larger screens like laptops and desktops */
+@media (min-width: 1200px) {
+    .main-card {
+        padding: 50px; /* Extra padding for larger screens */
+        max-width: 500px; /* Slightly increase max width */
+    }
+
+    .khalis-button {
+        font-size: 18px; /* Increase button font size */
+        padding: 15px 35px; /* Adjust button padding */
+    }
+}
