@@ -1,6 +1,6 @@
 export const initiateKhalisSSO = () => {
     const khalisSSOUrl = process.env.REACT_APP_KHALIS_SSO_URL;
-    const redirectUrl = process.env.REACT_APP_REDIRECT_URL;
+    const redirectUrl = process.env.REACT_APP_REDIRECT_URL.trim();
 
     console.log("Khalis SSO URL:", khalisSSOUrl);
     console.log("Redirect URL:", redirectUrl);

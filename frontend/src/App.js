@@ -188,8 +188,6 @@
 // }
 
 // export default App;
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import ChatScreenPage from './components/ChatScreenPage';
@@ -199,8 +197,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/chat" element={<ChatScreenPage />} /> {/* Updated to use element */}
-        {/* Add other routes here */}
+        <Route path="/chat" element={<ChatScreenPage />} />
       </Routes>
     </Router>
   );
