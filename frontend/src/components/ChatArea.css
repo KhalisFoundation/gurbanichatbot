@@ -1,0 +1,190 @@
+/* Chat Area Styling */
+.chat-area {
+    flex: 2; /* Takes up 2 parts of the available space compared to other flex items */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    padding: 20px; /* Adds padding inside the chat area */
+    background-color: #f5f5f5; /* Light grey background color */
+    border-radius: 15px; /* Rounded corners for the chat area */
+    margin-left: 50px; /* Space from the left side */
+    margin-top: 20px; /* Space from the top */
+    margin-bottom: 40px; /* Space from the bottom */
+    margin-right: 90px; /* Space from the right side */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow effect */
+}
+
+/* Query Form Styling */
+.query-form {
+    display: flex; /* Flexbox layout to arrange items horizontally */
+    align-items: center; /* Vertically center the items within the form */
+    margin-top: 20px; /* Space above the query form */
+    position: relative; /* Allows positioning of elements inside the form */
+    margin-left: 0px; /* No space from the left */
+    margin-bottom: 2px; /* Small space below the query form */
+}
+
+/* Query Input Field Styling */
+.query-input {
+    flex: 1; /* Takes up remaining space in the flex container */
+    padding: 10px; /* Adds padding inside the input field */
+    font-size: 16px; /* Sets the font size for input text */
+    border-radius: 30px; /* Fully rounded input field */
+    border: 1px solid #ccc; /* Light grey border */
+    margin-right: 10px; /* Space between the input field and the submit button */
+    outline: none; /* Removes default outline when input is focused */
+    margin-bottom: 20px; /* Space below the input field */
+}
+
+/* Query Instruction Text Styling */
+.query-instruction {
+    font-size: 14px; /* Font size for the instruction text */
+    color: #555; /* Dark grey text color */
+    margin-bottom: 5px; /* Small space below the instruction */
+    text-align: left; /* Left-aligns the instruction text */
+    position: absolute; /* Allows positioning within the form */
+    top: 40px; /* Adjusts vertical position */
+    left: 10px; /* Space from the left */
+}
+
+/* Submit Button Styling */
+.query-submit-btn {
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color */
+    border: none; /* Removes border */
+    padding: 15px; /* Padding inside the button */
+    border-radius: 50%; /* Circular button shape */
+    cursor: pointer; /* Shows pointer cursor on hover */
+    display: flex; /* Flexbox layout to center content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 20px; /* Space below the button */
+}
+
+/* Hover Effect for Submit Button */
+.query-submit-btn:hover {
+    background-color: #333; /* Darker grey background on hover */
+}
+
+/* Arrow Icon Inside the Submit Button */
+.query-submit-btn .arrow {
+    font-size: 16px; /* Font size for the arrow icon */
+}
+
+/* Circle Image Container Styling */
+.circle {
+    display: flex; /* Flexbox layout to center content */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    width: 50px; /* Fixed width of the circle */
+    height: 50px; /* Fixed height of the circle */
+    border-radius: 50%; /* Fully rounded container (circle) */
+    overflow: hidden; /* Hides overflow content to maintain circular shape */
+}
+
+/* Image Inside Circle & Small Logo Styling */
+.source-image, .logo-small {
+    width: 100%; /* Full width of the circle */
+    height: 100%; /* Full height of the circle */
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+}
+
+/* Source Display Section */
+.source-display {
+    display: flex; /* Flexbox layout for source display */
+    align-items: center; /* Center aligns the items */
+}
+
+/* Source Text Styling org cirle source text*/
+.source-text {
+    margin-left: 10px; /* Space between the circle and the text */
+    font-size: 16px; /* Font size for the source text */
+    color: rgb(0, 0, 0); /* Black text color */
+    margin-top: -6px; /* Adjusts the vertical alignment slightly */
+}
+
+/* History Section Styling */
+.history-section {
+    margin-top: 20px; /* Space above the history section */
+    flex-grow: 1; /* Allows the section to grow and take up remaining space */
+}
+
+/* History Panel Styling */
+.history-panel {
+    list-style-type: none; /* Removes bullet points from list */
+    padding: 0; /* Removes default padding */
+}
+
+/* History Item Styling */
+.history-item {
+    cursor: pointer; /* Pointer cursor on hover to indicate interactivity */
+}
+
+/* Message Container Styling */
+.message {
+    display: flex; /* Flexbox layout for messages */
+    flex-direction: column; /* Stack items vertically (sender and message text) */
+    margin-bottom: 10px; /* Space between messages */
+}
+
+/* Sender Label Styling (e.g., "You") */
+.sender {
+    font-weight: bold; /* Makes the "You" label bold */
+    margin-bottom: 5px; /* Adds space below the sender label */
+}
+
+/* Message Text Styling */
+.message-text {
+    margin-left: 10px; /* Indents the message slightly for visual clarity */
+    word-wrap: break-word; /* Ensures the message text wraps to the next line if too long */
+    font-size: 16px; /* Sets the font size for the message text */
+    
+   
+}
+
+/* Updated Section: Question Display Styling */
+.question-display {
+    display: flex; /* Flexbox layout for question display */
+    align-items: center; /* Vertically aligns the items */
+    margin-bottom: 5px; /* Adds space below the question display */
+   
+}
+
+/* Sender Label Styling for Questions */
+.sender-label {
+    font-weight: bold; /* Bold font for the sender label */
+    margin-left: 10px; /* Space between the blue circle and "You" label */
+    font-size: 16px; /* Sets the font size for the sender label */
+    
+}
+
+/* Wrapper for the Question Text */
+.question-text-wrapper {
+    margin-left: -50px; /* Moves the question bubble below the "You" label */
+    margin-top: 60px;  /* Adds 5px space below the "You" label */
+   
+}
+
+/* Question Text Styling */
+.question-text {
+    word-wrap: break-word; /* Ensures the question text wraps properly */
+    font-size: 16px; /* Sets the font size for the question text */
+    background-color: #e3e3e3; /* Light grey background for the question bubble */
+    padding: 10px; /* Adds padding inside the bubble */
+    border-radius: 9px; /* Rounds the corners of the bubble */
+    position: relative; /* Allows positioning of the pseudo-element */
+    border-color: #e3e3e3;
+}
+
+
+.question-text::before {
+    content: ""; /* No text content, just the shape */
+    position: absolute; /* Position relative to the bubble */
+    bottom: 24.5px; /* Aligns with the bottom of the bubble */
+    left: -1px; /* Positioned to the left side */
+    border-width: 15px 15px 0 0; /* Creates a triangle pointing down */
+    border-style: solid; /* Solid lines */
+    border-color: #e3e3e3 transparent transparent transparent; /* Matches bubble background */
+}
+
+
+

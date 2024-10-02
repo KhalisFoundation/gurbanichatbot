@@ -1,5 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { handleKhalisSSOResponse } from '../utils/khalisSSO';
+import ChatArea from '../components/ChatArea';
+import RightBox from '../components/RightBox';
+import logo from '../images/hazur_image.png'; // Ensure the correct path to your logo
 import './ChatScreenPage.css';
 
 const ChatScreenPage = () => {
@@ -13,8 +17,9 @@ const ChatScreenPage = () => {
     'Sri Guru Granth Sahib Ji': 0,
     'Sri Dasam Granth Sahib': 0,
     'Vaaran Bhai Gurdas Ji': 0,
-    'Mahan Kosh': 0
+    'Mahan Kosh': 0,
   });
+  const [menuOpen, setMenuOpen] = useState(false); // State for hamburger menu
 
   useEffect(() => {
     const token = handleKhalisSSOResponse();
@@ -25,7 +30,6 @@ const ChatScreenPage = () => {
     }
   }, []);
 
-  // Fetch Gurbani data based on the query
   const fetchGurbaniData = async (query) => {
     setLoading(true);
     try {
@@ -35,7 +39,7 @@ const ChatScreenPage = () => {
 
       const filteredData = data.results.filter(item => item.Payload.SourceID === getSourceID(selectedSource));
       setGurbaniData(filteredData);
-      setHistory([...history, query]);
+      setHistory(prevHistory => [...prevHistory, query]);
 
       updateSourceCounts(data.results);
 
@@ -43,17 +47,19 @@ const ChatScreenPage = () => {
       setShabadDetails(shabadData);
     } catch (error) {
       console.error('Error fetching Gurbani data:', error);
+      // Consider setting an error state and displaying an error message to the user
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  // Update the counts for each source
+  // Function to update the source counts
   const updateSourceCounts = (data) => {
     const counts = {
       'Sri Guru Granth Sahib Ji': 0,
       'Sri Dasam Granth Sahib': 0,
       'Vaaran Bhai Gurdas Ji': 0,
-      'Mahan Kosh': 0
+      'Mahan Kosh': 0,
     };
 
     data.forEach(item => {
@@ -78,6 +84,7 @@ const ChatScreenPage = () => {
     setSourceCounts(counts);
   };
 
+  // Function to convert the selected source to its corresponding ID
   const getSourceID = (source) => {
     switch (source) {
       case 'Sri Guru Granth Sahib Ji':
@@ -93,17 +100,15 @@ const ChatScreenPage = () => {
     }
   };
 
-  // Fetch shabad details from Bani DB
   const fetchShabadDetails = async (gurbaniData) => {
-    let shabadDetails = [];
-    for (let item of gurbaniData) {
+    const shabadDetails = [];
+    for (const item of gurbaniData) {
       const shabadId = item.Payload.ShabadID;
-
       try {
         const response = await fetch(`https://api.banidb.com/v2/shabads/${shabadId}`);
         const data = await response.json();
-
-        const verses = data.verses.slice(0, 5).map((verse) => ({
+        
+        const verses = data.verses.slice(0, 5).map(verse => ({
           verse: verse.verse.unicode,
           translation: verse.translation?.en?.bdb || 'Translation not available',
         }));
@@ -129,88 +134,40 @@ const ChatScreenPage = () => {
 
   return (
     <div className="chat-screen-container">
-      {/* Sidebar for Sources */}
-      <div className="sidebar">
-        <h3>Sources</h3>
-        <ul>
-          {['Sri Guru Granth Sahib Ji', 'Sri Dasam Granth Sahib', 'Vaaran Bhai Gurdas Ji', 'Mahan Kosh'].map((source) => (
-            <li
-              key={source}
-              className={selectedSource === source ? 'active' : ''}
-              onClick={() => setSelectedSource(source)}
-            >
-              {source} ({sourceCounts[source]})
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* Chat Area */}
-      <div className="chat-area">
-        <div className="chat-header">
-          <h2>What would you like to know?</h2>
-        </div>
+      <ChatArea 
+        query={query}
+        setQuery={setQuery}
+        handleQuerySubmit={handleQuerySubmit}
+        loading={loading}
+        shabadDetails={shabadDetails}
+        selectedSource={selectedSource}
+        logo={logo}
+      />
 
-        <form className="query-form" onSubmit={handleQuerySubmit}>
-          <input
-            type="text"
-            placeholder="Type your question..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="query-input"
-          />
-          <button type="submit" className="query-submit-btn">Ask</button>
-        </form>
-
-        {/* Display Results */}
-        {loading ? (
-          <p>Loading...</p>
+      {/* Hamburger Menu */}
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? (
+          <button className="close-button" onClick={() => setMenuOpen(false)}>
+            &times; {/* Close icon */}
+          </button>
         ) : (
-          <div className="results-section">
-            {shabadDetails.length > 0 && (
-              <div className="top-result">
-                <h3>Top Result</h3>
-                <div className="result-card">
-                  <h3>Shabad ID: {shabadDetails[0].shabadId}</h3>
-                  {shabadDetails[0].verses.map((verse, index) => (
-                    <div key={index}>
-                      <p className="gurbani-verse">{verse.verse}</p>
-                      <p className="gurbani-translation">{verse.translation}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {shabadDetails.length > 1 && (
-              <div className="other-results">
-                <h3>Other Results</h3>
-                {shabadDetails.slice(1).map((item, index) => (
-                  <div key={index} className="result-card">
-                    <h3>Shabad ID: {item.shabadId}</h3>
-                    {item.verses.map((verse, vIndex) => (
-                      <div key={vIndex}>
-                        <p className="gurbani-verse">{verse.verse}</p>
-                        <p className="gurbani-translation">{verse.translation}</p>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <span>&#9776;</span> // Hamburger icon
         )}
       </div>
 
-      {/* History Section */}
-      <div className="history-panel">
-        <h3>History</h3>
-        <ul>
-          {history.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      {/* Right Side Box with Sources and History */}
+      {menuOpen && (
+        <div className="right-box">
+          <RightBox 
+            selectedSource={selectedSource}
+            setSelectedSource={setSelectedSource}
+            sourceCounts={sourceCounts}
+            history={history}
+            logo={logo}
+          />
+        </div>
+      )}
     </div>
   );
 };
