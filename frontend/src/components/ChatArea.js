@@ -1,10 +1,30 @@
-import './ChatScreenPage.css';
+import React, { useState, useEffect } from 'react';
+import './ChatScreenPage/ChatScreenPage/ChatScreenPage.css';
+
 import image from '../assets/images/image.png'; 
 import blueCircleImage from '../assets/images/image2.png'; // Blue circle image
 import './ChatArea.css';
-import React from 'react';
 
-const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, selectedSource, logo }) => {
+
+const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, selectedSource }) => {
+  // Sample suggestions for Gurbani questions
+  const suggestions = [
+    "When to pray?",
+    "Who created Vedas?",
+   
+    "What is the meaning of life?",
+    "How to attain salvation?",
+  ];
+
+  // State to track if the user has started typing
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+    // Show suggestions only if the input is not empty
+    setShowSuggestions(e.target.value.trim() !== '');
+  };
+
   return (
     <div className="chat-area">
       {/* Display the Question at the Top */}
@@ -76,6 +96,17 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
         )}
       </div>
 
+      {/* Suggestions for Gurbani search, only show if the user has typed something */}
+      {showSuggestions && (
+        <div className="suggestions-container">
+          {suggestions.map((suggestion, index) => (
+            <div key={index} className="suggestion-box" onClick={() => setQuery(suggestion)}>
+              {suggestion}
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Input area at the bottom */}
       <form className="query-form" onSubmit={handleQuerySubmit}>
         <p className="query-instruction">Type your question above</p>
@@ -84,7 +115,7 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
           type="text"
           placeholder="Enter your query..."
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleInputChange} // Update the input change handler
         />
         <button className="query-submit-btn" type="submit">
           <span className="arrow">&#x2794;</span>

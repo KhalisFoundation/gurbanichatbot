@@ -188,3 +188,39 @@
 
 
 
+/* Suggestions Styling */
+.suggestions-container {
+    display: flex; /* Flexbox layout */
+    flex-wrap: wrap; /* Allows wrapping to the next line */
+    justify-content: flex-start; /* Aligns suggestions to the left */
+    gap: 15px; /* Adds space between the suggestion boxes */
+    margin-top: 20px; /* Adds space above the suggestion section */
+    max-height: 200px; /* Set a maximum height for the suggestions container */
+    overflow-y: auto; /* Enables vertical scrolling when content exceeds max height */
+}
+
+/* Individual Suggestion Box Styling */
+.suggestion-box {
+    padding: 10px 10px; /* Adds padding inside the box */
+    background-color: #ffffff; /* Light grey background for the suggestion box */
+    border-radius: 50px; /* Gives the box a cylinder shape */
+    border: 1px solid rgb(211, 226, 231); /* Light blue border for suggestion box */
+    font-size: 14px; /* Sets the font size for the suggestion text */
+    color: #000; /* Black text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Suggestion Box */
+.suggestion-box:hover {
+    background-color: #bbb; /* Darker grey background on hover */
+}
+
+/* Responsive Styling for Mobile Devices */
+@media (max-width: 768px) { /* Adjust this breakpoint as needed */
+    .suggestions-container {
+        flex-direction: column; /* Stack suggestion boxes vertically for mobile */
+        max-height: 150px; /* Optional: adjust the max height for mobile if needed */
+    }
+}
+
