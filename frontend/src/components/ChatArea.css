@@ -1,4 +1,6 @@
 /* Chat Area Styling */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
 .chat-area {
     flex: 2; /* Takes up 2 parts of the available space compared to other flex items */
     display: flex; /* Enables flexbox layout */
@@ -11,6 +13,7 @@
     margin-bottom: 40px; /* Space from the bottom */
     margin-right: 90px; /* Space from the right side */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow effect */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Query Form Styling */
@@ -21,6 +24,7 @@
     position: relative; /* Allows positioning of elements inside the form */
     margin-left: 0px; /* No space from the left */
     margin-bottom: 2px; /* Small space below the query form */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Query Input Field Styling */
@@ -33,6 +37,7 @@
     margin-right: 10px; /* Space between the input field and the submit button */
     outline: none; /* Removes default outline when input is focused */
     margin-bottom: 20px; /* Space below the input field */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Query Instruction Text Styling */
@@ -44,6 +49,7 @@
     position: absolute; /* Allows positioning within the form */
     top: 40px; /* Adjusts vertical position */
     left: 10px; /* Space from the left */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Submit Button Styling */
@@ -58,16 +64,19 @@
     align-items: center; /* Vertically center the content */
     justify-content: center; /* Horizontally center the content */
     margin-bottom: 20px; /* Space below the button */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Hover Effect for Submit Button */
 .query-submit-btn:hover {
     background-color: #333; /* Darker grey background on hover */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Arrow Icon Inside the Submit Button */
 .query-submit-btn .arrow {
     font-size: 16px; /* Font size for the arrow icon */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Circle Image Container Styling */
@@ -79,6 +88,7 @@
     height: 50px; /* Fixed height of the circle */
     border-radius: 50%; /* Fully rounded container (circle) */
     overflow: hidden; /* Hides overflow content to maintain circular shape */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Image Inside Circle & Small Logo Styling */
@@ -86,12 +96,14 @@
     width: 100%; /* Full width of the circle */
     height: 100%; /* Full height of the circle */
     object-fit: cover; /* Ensures the image covers the circle without distortion */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Source Display Section */
 .source-display {
     display: flex; /* Flexbox layout for source display */
     align-items: center; /* Center aligns the items */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Source Text Styling org cirle source text*/
@@ -100,23 +112,27 @@
     font-size: 16px; /* Font size for the source text */
     color: rgb(0, 0, 0); /* Black text color */
     margin-top: -6px; /* Adjusts the vertical alignment slightly */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* History Section Styling */
 .history-section {
     margin-top: 20px; /* Space above the history section */
     flex-grow: 1; /* Allows the section to grow and take up remaining space */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* History Panel Styling */
 .history-panel {
     list-style-type: none; /* Removes bullet points from list */
     padding: 0; /* Removes default padding */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* History Item Styling */
 .history-item {
     cursor: pointer; /* Pointer cursor on hover to indicate interactivity */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Message Container Styling */
@@ -124,19 +140,23 @@
     display: flex; /* Flexbox layout for messages */
     flex-direction: column; /* Stack items vertically (sender and message text) */
     margin-bottom: 10px; /* Space between messages */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Sender Label Styling (e.g., "You") */
 .sender {
     font-weight: bold; /* Makes the "You" label bold */
     margin-bottom: 5px; /* Adds space below the sender label */
+    font-family: 'Noto Sans', sans-serif;
 }
+
 
 /* Message Text Styling */
 .message-text {
     margin-left: 10px; /* Indents the message slightly for visual clarity */
     word-wrap: break-word; /* Ensures the message text wraps to the next line if too long */
     font-size: 16px; /* Sets the font size for the message text */
+    font-family: 'Noto Sans', sans-serif;
     
    
 }
@@ -146,6 +166,7 @@
     display: flex; /* Flexbox layout for question display */
     align-items: center; /* Vertically aligns the items */
     margin-bottom: 5px; /* Adds space below the question display */
+    font-family: 'Noto Sans', sans-serif;
    
 }
 
@@ -154,6 +175,7 @@
     font-weight: bold; /* Bold font for the sender label */
     margin-left: 10px; /* Space between the blue circle and "You" label */
     font-size: 16px; /* Sets the font size for the sender label */
+    font-family: 'Noto Sans', sans-serif;
     
 }
 
@@ -161,6 +183,7 @@
 .question-text-wrapper {
     margin-left: -50px; /* Moves the question bubble below the "You" label */
     margin-top: 60px;  /* Adds 5px space below the "You" label */
+    font-family: 'Noto Sans', sans-serif;
    
 }
 
@@ -173,6 +196,7 @@
     border-radius: 9px; /* Rounds the corners of the bubble */
     position: relative; /* Allows positioning of the pseudo-element */
     border-color: #e3e3e3;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 
@@ -184,8 +208,8 @@
     border-width: 15px 15px 0 0; /* Creates a triangle pointing down */
     border-style: solid; /* Solid lines */
     border-color: #e3e3e3 transparent transparent transparent; /* Matches bubble background */
+    font-family: 'Noto Sans', sans-serif;
 }
-
 
 
 /* Suggestions Styling */
@@ -197,6 +221,7 @@
     margin-top: 20px; /* Adds space above the suggestion section */
     max-height: 200px; /* Set a maximum height for the suggestions container */
     overflow-y: auto; /* Enables vertical scrolling when content exceeds max height */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Individual Suggestion Box Styling */
@@ -209,12 +234,16 @@
     color: #000; /* Black text color */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* Hover Effect for Suggestion Box */
 .suggestion-box:hover {
     background-color: #bbb; /* Darker grey background on hover */
+    font-family: 'Noto Sans', sans-serif;
 }
+
+
 
 /* Responsive Styling for Mobile Devices */
 @media (max-width: 768px) { /* Adjust this breakpoint as needed */
@@ -223,4 +252,5 @@
         max-height: 150px; /* Optional: adjust the max height for mobile if needed */
     }
 }
+
 
