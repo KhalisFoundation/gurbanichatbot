@@ -15,7 +15,7 @@ export const updateSourceCounts = (data, setSourceCounts) => {
         case 'D':
           counts['Sri Dasam Granth Sahib'] += 1;
           break;
-        case 'V':
+        case 'B':
           counts['Vaaran Bhai Gurdas Ji'] += 1;
           break;
         case 'M':

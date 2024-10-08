@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { fetchGurbaniData } from './utils'; // Importing from utils/index.js
-import ChatArea from '../../ChatArea.js';
-import RightBox from '../../RightBox.js';
-import logo from '../../../images/hazur_image.png'; 
-
+import Cookies from 'js-cookie'; 
+import { fetchGurbaniData, getSourceID } from './utils'; 
+import ChatArea from '../../ChatArea';
+import RightBox from '../../RightBox';
+import logo from '../../../images/hazur_image.png';
 import './ChatScreenPage.css';
 
-
 const ChatScreenPage = () => {
-  const [query, setQuery] = useState('');
-  const [gurbaniData, setGurbaniData] = useState([]);
-  const [shabadDetails, setShabadDetails] = useState([]);
+  const [query, setQuery] = useState(''); 
+  const [shabadDetails, setShabadDetails] = useState([]); 
+  const [gurbaniData, setGurbaniData] = useState([]); // Define gurbaniData state here
   const [selectedSource, setSelectedSource] = useState('Sri Guru Granth Sahib Ji');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const [history, setHistory] = useState([]);
   const [sourceCounts, setSourceCounts] = useState({
     'Sri Guru Granth Sahib Ji': 0,
@@ -23,41 +22,56 @@ const ChatScreenPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Authentication logic here
+    const token = Cookies.get('khalisUserToken');
+    
+    if (token) {
+      console.log('User token:', token);
+      // Use token if needed for authenticated requests
+    } else {
+      console.error('No token found, user is not authenticated');
+      // Optionally, handle unauthenticated users, like redirect to login
+    }
   }, []);
 
   const handleQuerySubmit = async (e) => {
     e.preventDefault();
     if (query) {
-      await fetchGurbaniData(query, selectedSource, setGurbaniData, setHistory, setSourceCounts, setShabadDetails, setLoading);
+      await fetchGurbaniData(
+        query, 
+        selectedSource, 
+        setGurbaniData, // Correctly passing setGurbaniData now
+        setHistory, 
+        setSourceCounts, 
+        setShabadDetails, 
+        setLoading
+      );
     }
   };
 
+  const filteredShabadDetails = shabadDetails.filter(item => item.source === getSourceID(selectedSource));
+
   return (
     <div className="chat-screen-container">
-      {/* Chat Area */}
-      <ChatArea 
+      <ChatArea
         query={query}
         setQuery={setQuery}
         handleQuerySubmit={handleQuerySubmit}
         loading={loading}
-        shabadDetails={shabadDetails}
+        shabadDetails={filteredShabadDetails}  
         selectedSource={selectedSource}
         logo={logo}
       />
 
-      {/* Hamburger Menu */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? (
           <button className="close-button" onClick={() => setMenuOpen(false)}>
-            &times; {/* Close icon */}
+            &times;
           </button>
         ) : (
-          <span>&#9776;</span> // Hamburger icon
+          <span>&#9776;</span> 
         )}
       </div>
 
-      {/* Right Side Box with Sources and History */}
       {menuOpen && (
         <div className="right-box">
           <RightBox 

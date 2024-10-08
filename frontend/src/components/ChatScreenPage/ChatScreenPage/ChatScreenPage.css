@@ -5,6 +5,7 @@
     padding: 0 5px;
     position: relative;
     background-color: #eaeaea;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Hamburger menu for the sidebar or navigation */
@@ -24,6 +25,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Separator between sections */
@@ -31,6 +33,7 @@
     width: 100%;
     border-top: 1px solid #ddd;
     margin: 10px 0;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Question display: Blue circle, "You" label, and the user's question */
@@ -38,6 +41,7 @@
     display: flex;
     align-items: center;
     margin-right: 20px;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* User's question text display */
@@ -52,6 +56,7 @@
     word-wrap: break-word;
     margin-left: 10px;
     border: 1px solid #ddd;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Triangle (bubble tail) for the question bubble */
@@ -63,12 +68,14 @@
     border-width: 15px 15px 0 0; /* Creates a triangle pointing down */
     border-style: solid; /* Solid lines */
     border-color: #e3e3e3 transparent transparent transparent; /* Matches bubble background */
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Section for the results */
   .results-section {
     flex: 1;
     overflow-y: auto;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Individual result card styling */
@@ -81,6 +88,7 @@
     margin-left: 60px;
     margin-top: -1px;
     position: relative;
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Triangle (bubble tail) for the result card */
@@ -93,6 +101,7 @@
     border-width: 15px 15px 0 0; /* Creates a triangle pointing down */
     border-style: solid; /* Solid lines */
     border-color:  #e3e3e3 transparent transparent transparent; /* Matches card background */
+    font-family: 'Noto Sans', sans-serif;
   }
   
   /* Result bubble styling */
@@ -107,6 +116,7 @@
     word-wrap: break-word;
     margin-top: 20px;
     border: 1px solid #ddd;
+    font-family: 'Noto Sans', sans-serif;
   }
   .zoom-btn {
     background-color: #4CAF50; /* Green */

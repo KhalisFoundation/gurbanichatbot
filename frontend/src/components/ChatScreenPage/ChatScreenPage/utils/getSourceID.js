@@ -6,7 +6,7 @@ export const getSourceID = (source) => {
       case 'Sri Dasam Granth Sahib':
         return 'D';
       case 'Vaaran Bhai Gurdas Ji':
-        return 'V';
+        return 'B';
       case 'Mahan Kosh':
         return 'M';
       default:

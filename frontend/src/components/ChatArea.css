@@ -254,3 +254,25 @@
 }
 
 
+@media (max-width: 768px) { 
+    .chat-area, .right-box {
+        border-radius: 0px; /* Removes rounded corners */
+        margin: 0; /* Removes margins */
+        width: 100%; /* Make them take up the full width of the screen */
+        height: 100vh; /* Make them take up the full height of the screen */
+        padding: 10px; /* Optional: adjust padding for better layout on mobile */
+        box-shadow: none; /* Removes the shadow */
+    }
+    
+    .chat-area {
+        margin-right: 0; /* Reset right margin to 0 */
+    }
+    
+    .right-box {
+        position: relative; /* Make it relative for full-screen display */
+        top: auto; /* Reset positioning */
+        right: auto; /* Reset positioning */
+        z-index: 1; /* Ensure it appears properly */
+    }
+}
+
