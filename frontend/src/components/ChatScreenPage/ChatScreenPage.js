@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie'; 
 import { fetchGurbaniData, getSourceID } from './utils'; 
-import ChatArea from '../../ChatArea';
-import RightBox from '../../RightBox';
-import logo from '../../../images/hazur_image.png';
+import ChatArea from '../ChatArea/ChatArea';  // Corrected path for ChatArea
+import RightBox from '../RightBox/RightBox'; 
+import logo from '../../assets/images/hazur_image.png';
 import './ChatScreenPage.css';
 
 const ChatScreenPage = () => {

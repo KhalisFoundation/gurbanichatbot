@@ -1,8 +1,8 @@
 import React from 'react';
 import './LandingPage.css'; // CSS for styling
-import logo from '../images/hazur_image.png'; // Your logo image
-import khalisLogo from '../images/logo_image.png'; // Import Khalis logo
-import { initiateKhalisSSO } from '../utils/khalisSSO'; // Import the SSO initiation function
+import logo from '../../assets/images/hazur_image.png'; // Ensure this path is correct // Your logo image
+import khalisLogo from '../../assets/images/logo_image.png'; // Ensure this path is correct // Import Khalis logo
+import { initiateKhalisSSO } from '../../utils/khalisSSO'; // Import the SSO initiation function
 
 const LandingPage = () => {
   return (

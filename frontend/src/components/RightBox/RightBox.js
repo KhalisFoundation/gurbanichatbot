@@ -1,12 +1,12 @@
 import React from 'react';
 import './RightBox.css';
-import logo from '../assets/images/hazur_image.png'; // Ensure this path is correct
+import logo from '../../assets/images/hazur_image.png'; // Ensure this path is correct
 
 // Importing the source images properly
-import image1 from '../assets/images/sourcelogo1.png';
-import image22 from '../assets/images/sourcelogo2.png'; // Ensure correct file name
-import image3 from '../assets/images/sourcelogo3.png';
-import image4 from '../assets/images/sourcelogo4.png';
+import image1 from '../../assets/images/sourcelogo1.png';
+import image22 from '../../assets/images/sourcelogo2.png'; // Ensure correct file name
+import image3 from '../../assets/images/sourcelogo3.png';
+import image4 from '../../assets/images/sourcelogo4.png';
 
 // Array of the image sources
 const logoImages = [image1, image22, image3, image4];

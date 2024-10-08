@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './ChatScreenPage/ChatScreenPage/ChatScreenPage.css';
+import '../ChatScreenPage/ChatScreenPage.css';
 
-import image from '../assets/images/response.png'; 
-import blueCircleImage from '../assets/images/sourcelogo2.png'; // Blue circle image
+import image from '../../assets/images/response.png'; 
+import blueCircleImage from '../../assets/images/sourcelogo2.png'; // Blue circle image
 import './ChatArea.css';
 
 
