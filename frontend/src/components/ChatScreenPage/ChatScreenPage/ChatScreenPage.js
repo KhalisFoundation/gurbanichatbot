@@ -9,7 +9,7 @@ import './ChatScreenPage.css';
 const ChatScreenPage = () => {
   const [query, setQuery] = useState(''); 
   const [shabadDetails, setShabadDetails] = useState([]); 
-  const [gurbaniData, setGurbaniData] = useState([]); // Define gurbaniData state here
+  const [gurbaniData, setGurbaniData] = useState([]); 
   const [selectedSource, setSelectedSource] = useState('Sri Guru Granth Sahib Ji');
   const [loading, setLoading] = useState(false); 
   const [history, setHistory] = useState([]);
@@ -23,13 +23,10 @@ const ChatScreenPage = () => {
 
   useEffect(() => {
     const token = Cookies.get('khalisUserToken');
-    
     if (token) {
       console.log('User token:', token);
-      // Use token if needed for authenticated requests
     } else {
       console.error('No token found, user is not authenticated');
-      // Optionally, handle unauthenticated users, like redirect to login
     }
   }, []);
 
@@ -39,7 +36,7 @@ const ChatScreenPage = () => {
       await fetchGurbaniData(
         query, 
         selectedSource, 
-        setGurbaniData, // Correctly passing setGurbaniData now
+        setGurbaniData,
         setHistory, 
         setSourceCounts, 
         setShabadDetails, 
