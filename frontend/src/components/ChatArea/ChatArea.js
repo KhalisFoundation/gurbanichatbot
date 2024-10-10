@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../ChatScreenPage/ChatScreenPage.css';
 
 import image from '../../assets/images/response.png'; 
-import blueCircleImage from '../../assets/images/sourcelogo2.png'; // Blue circle image
+import blueCircleImage from '../../assets/images/youlogo.png'; // Blue circle image
 import './ChatArea.css';
-
 
 const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, selectedSource }) => {
   // Sample suggestions for Gurbani questions
   const suggestions = [
     "When to pray?",
     "Who created Vedas?",
-   
     "What is the meaning of life?",
     "How to attain salvation?",
   ];
 
   // State to track if the user has started typing
   const [showSuggestions, setShowSuggestions] = useState(false);
+  
+  // State to track the submitted query
+  const [submittedQuery, setSubmittedQuery] = useState('');
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
@@ -25,12 +26,21 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
     setShowSuggestions(e.target.value.trim() !== '');
   };
 
+  // Update the submit handler to set the submitted query
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      setSubmittedQuery(query); // Set the submitted query
+      handleQuerySubmit(e);     // Call the original submit handler
+    }
+  };
+
   return (
     <div className="chat-area">
       {/* Display the Question at the Top */}
-      {query && (
+      {submittedQuery && (
         <div className="question-display-top">
-          <span className="question-top-text">{query}</span>
+          <span className="question-top-text">{submittedQuery}</span>
         </div>
       )}
 
@@ -38,7 +48,7 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
       <hr className="question-separator" />
 
       {/* You Section with the Question */}
-      {query && (
+      {submittedQuery && (
         <div className="question-source-section">
           {/* Message bubble */}
           <div className="question-display">
@@ -50,13 +60,13 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
           </div>
           {/* The question text moves below "You" */}
           <div className="question-text-wrapper">
-            <span className="question-text">{query}</span>
+            <span className="question-text">{submittedQuery}</span>
           </div>
         </div>
       )}
 
       {/* Display Source */}
-      {query && (
+      {submittedQuery && (
         <div className="source-display">
           <div className="circle orange-circle">
             <img src={image} alt="Source Icon" className="source-image" />
@@ -72,7 +82,7 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
         {!loading && shabadDetails.length > 0 && (
           <>
             <div className="result-card top-result">
-              <h3 className="gurbani-title orange-text">TOP RESULT: Shabad ID: {shabadDetails[0].shabadId}</h3>
+              <h3 className="gurbani-title orange-text">TOP RESULT </h3>
               {shabadDetails[0].verses.map((verse, index) => (
                 <div key={index}>
                   <p className="gurbani-verse">{verse.verse}</p>
@@ -83,7 +93,7 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
             {/* Display Other Results */}
             {shabadDetails.slice(1).map((shabad) => (
               <div key={shabad.shabadId} className="result-card">
-                <h3 className="gurbani-title orange-text">OTHER RESULT Shabad ID: {shabad.shabadId}</h3>
+                <h3 className="gurbani-title orange-text">OTHER RESULTS</h3>
                 {shabad.verses.map((verse, index) => (
                   <div key={index}>
                     <p className="gurbani-verse">{verse.verse}</p>
@@ -108,7 +118,7 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
       )}
 
       {/* Input area at the bottom */}
-      <form className="query-form" onSubmit={handleQuerySubmit}>
+      <form className="query-form" onSubmit={handleFormSubmit}>
         <p className="query-instruction">Type your question above</p>
         <input
           className="query-input"
