@@ -178,15 +178,69 @@
     font-family: 'Noto Sans', sans-serif;
     
 }
+/* Container holding the expand and close icons */
+/* ChatArea.css */
+/* Expanded Shabad styling */
+.expanded-shabad {
+    display: flex;
+    position:relative;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.cross-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.cross-icon-img {
+    width: 24px;
+    height: 24px;
+}
+.expand-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.expand-icon-img {
+    width: 24px;
+    height: 24px;
+}
+/* Hides suggestions, form, and other components when expanded */
+.chat-area.expanded .suggestions-container,
+
+.chat-area.expanded .question-display-top,
+.chat-area.expanded .source-display,
+.chat-area.expanded .question-source-section {
+    display: none;
+}
 
 /* Wrapper for the Question Text */
 .question-text-wrapper {
-    margin-left: -50px; /* Moves the question bubble below the "You" label */
-    margin-top: 60px;  /* Adds 5px space below the "You" label */
+    margin-left: -50px;
+    margin-top: 60px;
     font-family: 'Noto Sans', sans-serif;
-   
 }
 
+/* Expanded results styling */
+.expanded .results-section {
+    width: 100%;
+    text-align: center;
+}
+
+.expanded .result-card {
+    margin: 0 auto;
+    width: 60%;
+}
 /* Question Text Styling */
 .question-text {
     word-wrap: break-word; /* Ensures the question text wraps properly */
