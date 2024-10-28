@@ -1,0 +1,332 @@
+/* Chat Area Styling */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+.chat-area {
+    flex: 2; /* Takes up 2 parts of the available space compared to other flex items */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    padding: 20px; /* Adds padding inside the chat area */
+    background-color: #f5f5f5; /* Light grey background color */
+    border-radius: 15px; /* Rounded corners for the chat area */
+    margin-left: 80px; /* Space from the left side */
+    margin-top: 20px; /* Space from the top */
+    margin-bottom: 40px; /* Space from the bottom */
+    margin-right: 310px; /* Space from the right side */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow effect */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Query Form Styling */
+.query-form {
+    display: flex; /* Flexbox layout to arrange items horizontally */
+    align-items: center; /* Vertically center the items within the form */
+    margin-top: 20px; /* Space above the query form */
+    position: relative; /* Allows positioning of elements inside the form */
+    margin-left: 0px; /* No space from the left */
+    margin-bottom: 2px; /* Small space below the query form */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Query Input Field Styling */
+.query-input {
+    flex: 1; /* Takes up remaining space in the flex container */
+    padding: 10px; /* Adds padding inside the input field */
+    font-size: 16px; /* Sets the font size for input text */
+    border-radius: 30px; /* Fully rounded input field */
+    border: 1px solid #ccc; /* Light grey border */
+    margin-right: 10px; /* Space between the input field and the submit button */
+    outline: none; /* Removes default outline when input is focused */
+    margin-bottom: 20px; /* Space below the input field */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Query Instruction Text Styling */
+.query-instruction {
+    font-size: 14px; /* Font size for the instruction text */
+    color: #555; /* Dark grey text color */
+    margin-bottom: 5px; /* Small space below the instruction */
+    text-align: left; /* Left-aligns the instruction text */
+    position: absolute; /* Allows positioning within the form */
+    top: 40px; /* Adjusts vertical position */
+    left: 10px; /* Space from the left */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Submit Button Styling */
+.query-submit-btn {
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color */
+    border: none; /* Removes border */
+    padding: 15px; /* Padding inside the button */
+    border-radius: 50%; /* Circular button shape */
+    cursor: pointer; /* Shows pointer cursor on hover */
+    display: flex; /* Flexbox layout to center content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 20px; /* Space below the button */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Hover Effect for Submit Button */
+.query-submit-btn:hover {
+    background-color: #333; /* Darker grey background on hover */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Arrow Icon Inside the Submit Button */
+.query-submit-btn .arrow {
+    font-size: 16px; /* Font size for the arrow icon */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Circle Image Container Styling */
+.circle {
+    display: flex; /* Flexbox layout to center content */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    width: 50px; /* Fixed width of the circle */
+    height: 50px; /* Fixed height of the circle */
+    border-radius: 50%; /* Fully rounded container (circle) */
+    overflow: hidden; /* Hides overflow content to maintain circular shape */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Image Inside Circle & Small Logo Styling */
+.source-image, .logo-small {
+    width: 100%; /* Full width of the circle */
+    height: 100%; /* Full height of the circle */
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Source Display Section */
+.source-display {
+    display: flex; /* Flexbox layout for source display */
+    align-items: center; /* Center aligns the items */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Source Text Styling org cirle source text*/
+.source-text {
+    margin-left: 10px; /* Space between the circle and the text */
+    font-size: 16px; /* Font size for the source text */
+    color: rgb(0, 0, 0); /* Black text color */
+    margin-top: -6px; /* Adjusts the vertical alignment slightly */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* History Section Styling */
+.history-section {
+    margin-top: 20px; /* Space above the history section */
+    flex-grow: 1; /* Allows the section to grow and take up remaining space */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* History Panel Styling */
+.history-panel {
+    list-style-type: none; /* Removes bullet points from list */
+    padding: 0; /* Removes default padding */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* History Item Styling */
+.history-item {
+    cursor: pointer; /* Pointer cursor on hover to indicate interactivity */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Message Container Styling */
+.message {
+    display: flex; /* Flexbox layout for messages */
+    flex-direction: column; /* Stack items vertically (sender and message text) */
+    margin-bottom: 10px; /* Space between messages */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Sender Label Styling (e.g., "You") */
+.sender {
+    font-weight: bold; /* Makes the "You" label bold */
+    margin-bottom: 5px; /* Adds space below the sender label */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+/* Message Text Styling */
+.message-text {
+    margin-left: 10px; /* Indents the message slightly for visual clarity */
+    word-wrap: break-word; /* Ensures the message text wraps to the next line if too long */
+    font-size: 16px; /* Sets the font size for the message text */
+    font-family: 'Noto Sans', sans-serif;
+    
+   
+}
+
+/* Updated Section: Question Display Styling */
+.question-display {
+    display: flex; /* Flexbox layout for question display */
+    align-items: center; /* Vertically aligns the items */
+    margin-bottom: 5px; /* Adds space below the question display */
+    font-family: 'Noto Sans', sans-serif;
+   
+}
+
+/* Sender Label Styling for Questions */
+.sender-label {
+    font-weight: bold; /* Bold font for the sender label */
+    margin-left: 10px; /* Space between the blue circle and "You" label */
+    font-size: 16px; /* Sets the font size for the sender label */
+    font-family: 'Noto Sans', sans-serif;
+    
+}
+/* Container holding the expand and close icons */
+/* ChatArea.css */
+/* Expanded Shabad styling */
+.expanded-shabad {
+    display: flex;
+    position:relative;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.cross-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.cross-icon-img {
+    width: 24px;
+    height: 24px;
+}
+.expand-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.expand-icon-img {
+    width: 24px;
+    height: 24px;
+}
+/* Hides suggestions, form, and other components when expanded */
+.chat-area.expanded .suggestions-container,
+
+.chat-area.expanded .question-display-top,
+.chat-area.expanded .source-display,
+.chat-area.expanded .question-source-section {
+    display: none;
+}
+
+/* Wrapper for the Question Text */
+.question-text-wrapper {
+    margin-left: -50px;
+    margin-top: 60px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Expanded results styling */
+.expanded .results-section {
+    width: 100%;
+    text-align: center;
+}
+
+.expanded .result-card {
+    margin: 0 auto;
+    width: 60%;
+}
+/* Question Text Styling */
+.question-text {
+    word-wrap: break-word; /* Ensures the question text wraps properly */
+    font-size: 16px; /* Sets the font size for the question text */
+    background-color: #e3e3e3; /* Light grey background for the question bubble */
+    padding: 10px; /* Adds padding inside the bubble */
+    border-radius: 9px; /* Rounds the corners of the bubble */
+    position: relative; /* Allows positioning of the pseudo-element */
+    border-color: #e3e3e3;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+.question-text::before {
+    content: ""; /* No text content, just the shape */
+    position: absolute; /* Position relative to the bubble */
+    bottom: 24.5px; /* Aligns with the bottom of the bubble */
+    left: -1px; /* Positioned to the left side */
+    border-width: 15px 15px 0 0; /* Creates a triangle pointing down */
+    border-style: solid; /* Solid lines */
+    border-color: #e3e3e3 transparent transparent transparent; /* Matches bubble background */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+/* Suggestions Styling */
+.suggestions-container {
+    display: flex; /* Flexbox layout */
+    flex-wrap: wrap; /* Allows wrapping to the next line */
+    justify-content: flex-start; /* Aligns suggestions to the left */
+    gap: 15px; /* Adds space between the suggestion boxes */
+    margin-top: 20px; /* Adds space above the suggestion section */
+    max-height: 200px; /* Set a maximum height for the suggestions container */
+    overflow-y: auto; /* Enables vertical scrolling when content exceeds max height */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Individual Suggestion Box Styling */
+.suggestion-box {
+    padding: 10px 10px; /* Adds padding inside the box */
+    background-color: #ffffff; /* Light grey background for the suggestion box */
+    border-radius: 50px; /* Gives the box a cylinder shape */
+    border: 1px solid rgb(211, 226, 231); /* Light blue border for suggestion box */
+    font-size: 14px; /* Sets the font size for the suggestion text */
+    color: #000; /* Black text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Hover Effect for Suggestion Box */
+.suggestion-box:hover {
+    background-color: #bbb; /* Darker grey background on hover */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+/* Responsive Styling for Mobile Devices */
+@media (max-width: 768px) { /* Adjust this breakpoint as needed */
+    .suggestions-container {
+        flex-direction: column; /* Stack suggestion boxes vertically for mobile */
+        max-height: 150px; /* Optional: adjust the max height for mobile if needed */
+    }
+}
+
+
+@media (max-width: 768px) { 
+    .chat-area, .right-box {
+        border-radius: 0px; /* Removes rounded corners */
+        margin: 0; /* Removes margins */
+        width: 100%; /* Make them take up the full width of the screen */
+        height: 100vh; /* Make them take up the full height of the screen */
+        padding: 10px; /* Optional: adjust padding for better layout on mobile */
+        box-shadow: none; /* Removes the shadow */
+    }
+    
+    .chat-area {
+        margin-right: 0; /* Reset right margin to 0 */
+    }
+    
+    .right-box {
+        position: relative; /* Make it relative for full-screen display */
+        top: auto; /* Reset positioning */
+        right: auto; /* Reset positioning */
+        z-index: 1; /* Ensure it appears properly */
+    }
+}
+
