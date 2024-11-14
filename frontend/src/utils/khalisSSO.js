@@ -5,7 +5,12 @@ import Cookies from 'js-cookie';
 // Initiate Khalis SSO login by redirecting to the SSO URL
 export const initiateKhalisSSO = () => {
   const khalisSSOUrl = process.env.REACT_APP_KHALIS_SSO_URL;
-  const redirectUrl = process.env.REACT_APP_REDIRECT_URL.trim();
+  const redirectUrl = process.env.NODE_ENV === 'production' 
+  ? 'https://hazur.vercel.app/chat' 
+  : 'http://localhost:3000/chat';
+
+window.location.href = `${khalisSSOUrl}?redirect_url=${encodeURIComponent(redirectUrl)}`;
+
 
   // Redirect to Khalis SSO login page with the redirect URL
   window.location.href = `${khalisSSOUrl}?redirect_url=${encodeURIComponent(redirectUrl)}`;

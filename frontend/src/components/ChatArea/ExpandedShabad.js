@@ -8,12 +8,16 @@ const ExpandedShabad = ({ shabad, onClose }) => {
         <img src={crossicon} alt="Close" className="cross-icon-img" />
       </div>
 
-      {shabad.verses.map((verse, index) => (
-        <div key={index}>
-          <p className="gurbani-verse">{verse.verse}</p>
-          <p className="gurbani-translation">{verse.translation}</p>
-        </div>
-      ))}
+      {shabad && shabad.verses ? (
+        shabad.verses.map((verse, index) => (
+          <div key={index}>
+            <p className="gurbani-verse">{verse.verse}</p>
+            <p className="gurbani-translation">{verse.translation}</p>
+          </div>
+        ))
+      ) : (
+        <p>No verses available.</p>
+      )}
     </div>
   );
 };
