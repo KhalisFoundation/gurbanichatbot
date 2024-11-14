@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import '../ChatScreenPage/ChatScreenPage.css';
-import expandicon from '../../assets/images/Frame.png'; 
-import image from '../../assets/images/response.png'; 
-import blueCircleImage from '../../assets/images/youlogo.png'; // Blue circle image
+import expandicon from '../../assets/images/Frame.png';
+import image from '../../assets/images/response.png';
+import blueCircleImage from '../../assets/images/youlogo.png';
 import './ChatArea.css';
-import ExpandedShabad from './ExpandedShabad'; // Import the expanded component
+import ExpandedShabad from './ExpandedShabad';
 
-const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, selectedSource }) => {
+const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails = [], selectedSource }) => {
   const suggestions = [
     "When to pray?",
     "Who created Vedas?",
@@ -59,7 +59,7 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
         </div>
       )}
 
-      {!isExpanded && submittedQuery && (
+      {!isExpanded && submittedQuery && selectedSource && (
         <div className="source-display">
           <div className="circle orange-circle">
             <img src={image} alt="Source Icon" className="source-image" />
@@ -70,8 +70,10 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
 
       <div className="results-section">
         {loading && <p>Loading...</p>}
-        {!loading && shabadDetails.length === 0 && <p>No results found. Try another query.</p>}
-        {!loading && shabadDetails.length > 0 && (
+        {!loading && (!Array.isArray(shabadDetails) || shabadDetails.length === 0) && (
+          <p>No results found. Try another query.</p>
+        )}
+        {!loading && Array.isArray(shabadDetails) && shabadDetails.length > 0 && (
           <>
             {!isExpanded ? (
               <div className="result-card top-result">
@@ -79,28 +81,37 @@ const ChatArea = ({ query, setQuery, handleQuerySubmit, loading, shabadDetails, 
                 <div className="expand-icon-container" onClick={toggleExpand}>
                   <img src={expandicon} alt="Expand" className="expand-icon-img" />
                 </div>
-                {shabadDetails[0].verses.map((verse, index) => (
-                  <div key={index}>
-                    <p className="gurbani-verse">{verse.verse}</p>
-                    <p className="gurbani-translation">{verse.translation}</p>
-                  </div>
-                ))}
+                {shabadDetails[0].verses ? (
+                  shabadDetails[0].verses.map((verse, index) => (
+                    <div key={index}>
+                      <p className="gurbani-verse">{verse.verse}</p>
+                      <p className="gurbani-translation">{verse.translation}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>No verses available for this shabad.</p>
+                )}
               </div>
             ) : (
               <ExpandedShabad shabad={shabadDetails[0]} onClose={toggleExpand} />
             )}
 
-            {!isExpanded && shabadDetails.slice(1).map((shabad) => (
-              <div key={shabad.shabadId} className="result-card">
-                <h3 className="gurbani-title orange-text">OTHER RESULTS</h3>
-                {shabad.verses.map((verse, index) => (
-                  <div key={index}>
-                    <p className="gurbani-verse">{verse.verse}</p>
-                    <p className="gurbani-translation">{verse.translation}</p>
-                  </div>
-                ))}
-              </div>
-            ))}
+            {!isExpanded &&
+              shabadDetails.slice(1).map((shabad, shabadIndex) => (
+                <div key={shabad.shabadId || shabadIndex} className="result-card">
+                  <h3 className="gurbani-title orange-text">OTHER RESULTS</h3>
+                  {shabad.verses ? (
+                    shabad.verses.map((verse, verseIndex) => (
+                      <div key={verseIndex}>
+                        <p className="gurbani-verse">{verse.verse}</p>
+                        <p className="gurbani-translation">{verse.translation}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No verses available for this shabad.</p>
+                  )}
+                </div>
+              ))}
           </>
         )}
       </div>
